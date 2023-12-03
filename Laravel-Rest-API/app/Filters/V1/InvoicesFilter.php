@@ -3,7 +3,6 @@
 namespace App\Filters\V1;
 
 use App\Filters\ApiFilter;
-use Illuminate\Http\Request;
 
 class InvoicesFilter extends ApiFilter
 {
@@ -17,7 +16,6 @@ class InvoicesFilter extends ApiFilter
     ];
 
     protected $columnMap = [
-
         'customerId' => 'customer_id',
         'billedDate' => 'billed_date',
         'paidDate' => 'paid_date',
@@ -29,6 +27,7 @@ class InvoicesFilter extends ApiFilter
         'lt' => '<',
         'gte' => '>=',
         'lte' => '<=',
+        'ne' => '!=',
         'ne' => '!=',
     ];
 }

@@ -12,6 +12,7 @@ class CustomerResource extends JsonResource
      *
      * @return array<string, mixed>
      */
+
     public function toArray(Request $request): array
     {
         return [
@@ -22,7 +23,7 @@ class CustomerResource extends JsonResource
             'address' => $this->address,
             'city' => $this->city,
             'state' => $this->state,
-            'postal_code' => $this->postal_code,
+            'postalCode' => $this->postal_code,
             'invoices' => InvoiceResource::collection($this->whenLoaded('invoices')),
         ];
     }

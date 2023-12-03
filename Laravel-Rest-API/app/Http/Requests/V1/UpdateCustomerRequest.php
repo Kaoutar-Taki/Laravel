@@ -10,9 +10,12 @@ class UpdateCustomerRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      */
+
     public function authorize(): bool
     {
-        return true;
+        $user = $this->user();
+
+        return $user != null && $user->tokenCan('update');
     }
 
     /**
@@ -20,9 +23,11 @@ class UpdateCustomerRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+
     public function rules(): array
     {
         $method = $this->method();
+
         if ($method === 'PUT') {
             return [
                 'name' => ['required'],
@@ -45,6 +50,7 @@ class UpdateCustomerRequest extends FormRequest
             ];
         }
     }
+
     protected function prepareForValidation()
     {
         if ($this->postalCode) {

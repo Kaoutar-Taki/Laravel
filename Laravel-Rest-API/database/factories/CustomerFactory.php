@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Customer>
  */
+
 class CustomerFactory extends Factory
 {
     /**
@@ -14,10 +15,12 @@ class CustomerFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
     public function definition(): array
     {
         $type = $this->faker->randomElement(['I', 'B']);
         $name = $type == 'I' ? $this->faker->name() : $this->faker->company();
+
         return [
             'name' => $name,
             'type' => $type,
@@ -25,7 +28,7 @@ class CustomerFactory extends Factory
             'address' => $this->faker->streetAddress(),
             'city' => $this->faker->city(),
             'state' => $this->faker->state(),
-            'postal_code' => $this->faker->postcode(),
+            'postal_code' => $this->faker->postCode(),
         ];
     }
 }

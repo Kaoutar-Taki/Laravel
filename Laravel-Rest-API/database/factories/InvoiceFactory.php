@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Invoice>
  */
+
 class InvoiceFactory extends Factory
 {
     /**
@@ -15,9 +16,11 @@ class InvoiceFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
     public function definition(): array
     {
         $status = $this->faker->randomElement(['B', 'P', 'V']);
+
         return [
             'customer_id' => Customer::factory(),
             'amount' => $this->faker->numberBetween(100, 20000),
